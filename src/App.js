@@ -32,7 +32,7 @@ function App() {
       }
       />
        <Route
-      path='/list'
+       path='/list/:category'
       element={
         <List/>
       }
