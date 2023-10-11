@@ -1,11 +1,13 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { NavLink} from 'react-router-dom';
+
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Category', href: '#', current: false },
-  { name: 'Add Card', href: '#', current: false },
+  { name: 'Dashboard',to: '/dash', current: true },
+  { name: 'Category', to: '/category', current: false },
+  { name: 'Add Card', to: '/addCards', current: false },
   
 ]
 
@@ -15,7 +17,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-purple-600">
+    <Disclosure as="nav" className="bg-black-600">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -43,9 +45,10 @@ export default function Example() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <NavLink
+                        to={item.to}
                         key={item.name}
-                        href={item.href}
+                        
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-md font-extrabold'
@@ -53,7 +56,7 @@ export default function Example() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </NavLink>
                     ))}
                   </div>
                 </div>
@@ -131,6 +134,9 @@ export default function Example() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
+                 <NavLink to={item.to}>
+
+                
                 <Disclosure.Button
                   key={item.name}
                   as="a"
@@ -143,8 +149,9 @@ export default function Example() {
                 >
                   {item.name}
                 </Disclosure.Button>
+                </NavLink> 
               ))}
-            </div>
+            </div> 
           </Disclosure.Panel>
         </>
       )}

@@ -8,8 +8,9 @@ import AddCards from './pages/AddCards';
 function App() {
   return (
     <>
+     <BrowserRouter>
     <Navbar/>
-    <BrowserRouter>
+   
     <Routes>
       <Route
       path='/dash'
