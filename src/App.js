@@ -5,6 +5,7 @@ import Navbar from './pages/Navbar'
 import HomePage from './pages/HomePage';
 import Categories from './pages/Categories';
 import AddCards from './pages/AddCards';
+import List from './pages/List';
 function App() {
   return (
     <>
@@ -30,9 +31,14 @@ function App() {
         <AddCards/>
       }
       />
+       <Route
+      path='/list'
+      element={
+        <List/>
+      }
+      />
       
     </Routes>
-    
     </BrowserRouter>
 
     </>
