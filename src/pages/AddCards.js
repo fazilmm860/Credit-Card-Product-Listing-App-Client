@@ -3,6 +3,10 @@ import React from 'react'
 const AddCards = () => {
     const cat=[
         {
+            choose: "Select the category",
+            to: "/list"
+        },
+        {
             choose: "Life Time Free Credit Cards",
             to: "/list"
         },
@@ -92,6 +96,17 @@ const AddCards = () => {
           />
         </div>
         <div className="mb-4">
+          <label htmlFor="image" className="block text-white font-bold mb-2">Image</label>
+          <input
+            type="text"
+            id="image"
+            name="image"
+            
+            className="w-full px-3 py-2 leading-tight text-gray-700 bg-gray-100 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            required
+          />
+        </div>
+        <div className="mb-4">
           <label htmlFor="category" className="block text-white font-bold mb-2">Category</label>
           <select
             id="category"
@@ -104,10 +119,7 @@ const AddCards = () => {
             {cat.map((item)=>(
                  <option value="">{item.choose}</option>
             ))}
-            {/* <option value="" disabled>Select a category</option>
-            <option value="Life Time Free Credit Cards">Life Time Free Credit Cards</option>
-            <option value="Reward Credit Card">Reward Credit Card</option> */}
-            {/* Add more options as needed */}
+         
           </select>
         </div>
         <div className="mb-4">
@@ -115,8 +127,6 @@ const AddCards = () => {
           <textarea
             id="description"
             name="description"
-           
-          
             className="w-full px-3 py-2 leading-tight text-gray-700 bg-gray-100 border rounded shadow appearance-none focus:outline-none focus:shadow-outline h-24 resize-none"
             required
           ></textarea>
