@@ -5,7 +5,7 @@ import { NavLink} from 'react-router-dom';
 
 
 const navigation = [
-  { name: 'Dashboard',to: '/dash', current: true },
+  { name: 'Dashboard',to: '/', current: true },
   { name: 'Category', to: '/category', current: false },
   { name: 'Add Card', to: '/addCards', current: false },
   

@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import Categories from './pages/Categories';
 import AddCards from './pages/AddCards';
 import List from './pages/List';
+import Error from './pages/Error';
 function App() {
   return (
     <>
@@ -14,7 +15,7 @@ function App() {
    
     <Routes>
       <Route
-      path='/dash'
+      path='/'
       element={
         <HomePage/>
       }
@@ -35,6 +36,12 @@ function App() {
        path='/list/:category'
       element={
         <List/>
+      }
+      />
+        <Route
+       path='*'
+      element={
+        <Error/>
       }
       />
       
