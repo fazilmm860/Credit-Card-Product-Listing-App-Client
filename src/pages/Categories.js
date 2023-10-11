@@ -1,7 +1,22 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Categories = () => {
+    const [categoryCounts,setCategoryCounts]=useState({});
+
+useEffect(()=>{
+
+    const fetchCategoryCounts=async()=>{
+        try{
+            const response=await axios.get(`http://localhost:9900/api/cards/categorycounts`)
+            setCategoryCounts(response.data);
+        }catch(error){
+            console.error(`Error fetching category counts:`, error);
+        }
+    };
+ fetchCategoryCounts();
+},[]);
     const title = [
     {
         choose: "Life Time Free Credit Cards",
@@ -64,6 +79,7 @@ const Categories = () => {
         to: "/list"
     },
 ]
+
   return (
   
         <div className='flex flex-col justify-center items-center'>
@@ -84,6 +100,7 @@ const Categories = () => {
                                 <h5 className="mb-2 text-xl font-medium text-neutral-50 text-center">
                                     {item.choose}
                                 </h5>
+                                <p className='text-sm font-bold text-white'>Count:{categoryCounts[item.choose] || 0}</p>
                             </div>
                         </div>
                     </Link>
